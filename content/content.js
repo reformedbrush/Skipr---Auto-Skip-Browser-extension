@@ -9,4 +9,4 @@ function skipIntro() {
   }
 }
 
-setInterval(skipIntro, 2000);
+setInterval(skipIntro, 1500);
