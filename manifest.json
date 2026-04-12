@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Skipr",
+    "version": "1.0",
+    "description": "Auto skip intro on Netflix",
+  
+    "permissions": ["storage"],
+  
+    "host_permissions": [
+      "*://*.netflix.com/*"
+    ],
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.netflix.com/*"],
+        "js": ["./content.js"]
+      }
+    ]
+  }
