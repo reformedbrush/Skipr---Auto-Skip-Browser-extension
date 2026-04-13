@@ -22,3 +22,32 @@ chrome.storage.local.get(["enabled","skipIntro", "nextEpisode"], (data) => {
   if (data.nextEpisode !== undefined)
     nextEpisode.checked = data.nextEpisode;
 });
+
+// Support / About modal logic
+const supportBtn = document.getElementById("supportBtn");
+const modal = document.getElementById("aboutModal");
+const closeModal = document.getElementById("closeModal");
+const coffeeBtn = document.getElementById("coffeeBtn");
+
+// Open modal
+if (supportBtn) {
+  supportBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+  });
+}
+
+// Close modal
+if (closeModal) {
+  closeModal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+}
+
+// Coffee link
+if (coffeeBtn) {
+  coffeeBtn.addEventListener("click", () => {
+    chrome.tabs.create({
+      url: "https://buymeacoffee.com/aki27"
+    });
+  });
+}

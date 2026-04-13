@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Skipr</h2>
-        <div class="toggle master">
-            <span>Enable Skipr</span>
-            <input type="checkbox" id="enabled" checked>
-          </div>
-          
-          <hr>
-        <div class="toggle">
-            <span>Skip Intro</span>
-            <input type="checkbox" id="skipIntro" checked>
-        </div>
-        <div class="toggle">
-            <span>Next Episode</span>
-            <input type="checkbox" id="nextEpisode" checked>
-        </div>
+  <div class="container">
 
-        <p id="status">Active</p>
+    <h2>Skipr</h2>
+
+    <div class="toggle master">
+      <span>Enable Skipr</span>
+      <label class="switch">
+        <input type="checkbox" id="enabled" checked>
+        <span class="slider"></span>
+      </label>
     </div>
 
-    <script src="popup.js"></script>
+    <div class="toggle">
+      <span>Skip Intro</span>
+      <label class="switch">
+        <input type="checkbox" id="skipIntro" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle">
+      <span>Next Episode</span>
+      <label class="switch">
+        <input type="checkbox" id="nextEpisode" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <button id="supportBtn" class="support-btn">
+     Support / About
+      </button>
+
+    <p id="status">Ready</p>
+
+  </div>
+  <div id="aboutModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Skipr</h3>
+      <p>Your binge, optimized.</p>
+  
+      <p class="desc">
+        Skipr automatically skips intros and plays the next episode
+        so you can enjoy seamless streaming.
+      </p>
+  
+      <button id="coffeeBtn">Buy Me a Coffee</button>
+  
+      <button id="closeModal" class="close-btn">Close</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>
