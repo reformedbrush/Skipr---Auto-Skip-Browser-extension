@@ -15,5 +15,8 @@
         "matches": ["*://*.netflix.com/*"],
         "js": ["content/content.js"]
       }
-    ]
+    ],
+    "action": {
+  "default_popup": "popup/popup.html"
+}
   }
