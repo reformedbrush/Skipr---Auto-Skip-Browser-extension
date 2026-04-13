@@ -20,9 +20,18 @@ function nextEpisode(){
     }
 }
 
-function runSkipr(){
-    skipIntro();
-    nextEpisode();
+function runSkipr() {
+  chrome.storage.local.get(["skipIntro", "nextEpisode"], (settings) => {
+
+    if (settings.skipIntro !== false) {
+      skipIntro();
+    }
+
+    if (settings.nextEpisode !== false) {
+      nextEpisode();
+    }
+
+  });
 }
 
 const observer = new MutationObserver(()=>{
