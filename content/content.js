@@ -1,12 +1,13 @@
 let timeout;
 let settingsCache = {
+  enabled: true,
   skipIntro: true,
   nextEpisode: true
 };
-console.log("Skipr running... fetaure/nextEp");
+console.log("Skipr running...");
 
 try {
-  chrome.storage.local.get(["skipIntro", "nextEpisode"], (settings) => {
+  chrome.storage.local.get(["enabled","skipIntro", "nextEpisode"], (settings) => {
     if (chrome.runtime?.id) {
       settingsCache = { ...settingsCache, ...settings };
     }
@@ -14,7 +15,7 @@ try {
 
   chrome.storage.onChanged.addListener((changes) => {
     if (!chrome.runtime?.id) return;
-
+    if (changes.enabled) settingsCache.enabled = changes.enabled.newValue;
     if (changes.skipIntro) settingsCache.skipIntro = changes.skipIntro.newValue;
     if (changes.nextEpisode) settingsCache.nextEpisode = changes.nextEpisode.newValue;
   });
@@ -66,6 +67,8 @@ function nextEpisode() {
 }
 
 function runSkipr() {
+  if (settingsCache.enabled === false) return;
+  
   if (settingsCache.skipIntro !== false) {
     skipIntro();
   }
